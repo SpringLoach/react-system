@@ -1,0 +1,1 @@
+export const CHANGE_COLLAPSED = "main/CHANGE_COLLAPSED";
