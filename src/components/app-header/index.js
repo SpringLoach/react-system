@@ -27,6 +27,14 @@ const MenuIconAttr = {
     marginRight: "10px",
   },
 };
+const MenuTipAttr = {
+  style: {
+    display: "inline-block",
+    marginRight: "8px",
+    fontSize: "12px",
+    transform: "scale(0.8) translateY(1px)",
+  },
+};
 
 const menu = (
   <Menu
@@ -73,6 +81,48 @@ const menu = (
     ]}
   />
 );
+const langMenu = (props) => {
+  const { lang, func } = props;
+
+  const langMap = [
+    {
+      lang: "zh_CN",
+      abbr: "CN",
+      label: "简体中文",
+    },
+    {
+      lang: "zh_HK",
+      abbr: "HK",
+      label: "繁體中文",
+    },
+    {
+      lang: "en_US",
+      abbr: "US",
+      label: "English",
+    },
+  ];
+
+  return (
+    <Menu
+      style={{ width: "120px" }}
+      selectedKeys={[lang]}
+      onClick={(e) => {
+        func(e.key);
+      }}
+      items={langMap.map((item) => {
+        return {
+          key: item.lang,
+          label: (
+            <div>
+              <span {...MenuTipAttr}>{item.abbr}</span>
+              {item.label}
+            </div>
+          ),
+        };
+      })}
+    />
+  );
+};
 
 export default memo(() => {
   // 获取 redux 中的状态、dispatch方法
@@ -106,14 +156,19 @@ export default memo(() => {
             <span className="nickname">{userInfo.nickname}</span>
           </div>
         </Dropdown>
-        <UserContext.Consumer>
-          {(value) => {
-            return (
-              <FontSizeOutlined
+        {/* <FontSizeOutlined
                 onClick={() => {
                   value.func();
                 }}
-              />
+              /> */}
+        <UserContext.Consumer>
+          {(value) => {
+            return (
+              <Dropdown overlay={langMenu(value)} placement="bottomRight">
+                <div style={{ padding: "0 18px" }}>
+                  <FontSizeOutlined />
+                </div>
+              </Dropdown>
             );
           }}
         </UserContext.Consumer>

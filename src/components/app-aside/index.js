@@ -1,9 +1,13 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { useSelector, shallowEqual } from "react-redux";
 import { useHistory } from "react-router-dom";
 import logo from "@/assets/img/logo.svg";
 
-import { FileSearchOutlined, ReadOutlined } from "@ant-design/icons";
+import {
+  FileSearchOutlined,
+  ReadOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import { Menu } from "antd";
 import LogoWrapper from "./style";
 
@@ -23,10 +27,13 @@ const items = [
     getItem("动态表格", "/base/hero"),
   ]),
   getItem("文档", "2", <FileSearchOutlined />, [
-    getItem("antdv文档", "https://ant.design/components/overview-cn/"),
+    getItem("antd文档", "https://ant.design/components/overview-cn/"),
     getItem("logo设计", "https://logomakr.com/"),
     getItem("z4a图传", "https://z4a.net/"),
     getItem("CodeTop", "https://codetop.cc/login"),
+  ]),
+  getItem("我的", "3", <UserOutlined />, [
+    getItem("个人设置", "/account/settings"),
   ]),
 ];
 
@@ -38,6 +45,7 @@ export default memo(() => {
     };
   }, shallowEqual);
 
+  const [currentKey, setCurrentKey] = useState();
   const history = useHistory();
 
   const clickMenuItem = ({ key }) => {
@@ -46,6 +54,7 @@ export default memo(() => {
       return;
     }
     history.push(key);
+    setCurrentKey(key);
   };
 
   return (
@@ -57,6 +66,7 @@ export default memo(() => {
       <Menu
         defaultSelectedKeys={["1-1"]}
         defaultOpenKeys={["1"]}
+        selectedKeys={[history.location.pathname]}
         mode="inline"
         theme="dark"
         items={items}
