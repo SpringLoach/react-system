@@ -12,7 +12,7 @@ const AvatarView = memo(() => {
     </ImgWrapper>
     <Upload showUploadList={false}>
       <div>
-        <Button>
+        <Button style={{ marginBottom: '20px' }}>
           <UploadOutlined />
           更换头像
         </Button>
@@ -21,14 +21,15 @@ const AvatarView = memo(() => {
   </>
 })
 
-export default memo(() => {
+export default memo((props) => {
+  const { showMode } = props;
 
   const onFinish = (values) => {
     console.log('Success:', values);
   };
 
   return (
-    <BaseWrapper>
+    <BaseWrapper flexDirection={showMode === 'large' ? 'row' : 'column-reverse'}>
       <Left>
         <Form
           name="basic"

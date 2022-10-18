@@ -16,16 +16,17 @@ const items = [
 
 export default memo(() => {
   const [currentKey, setCurrentKey] = useState("base");
-  const [showMode, setShowMode] = useState("large");
   const [initConfig, setInitConfig] = useState({
+    showMode: 'large',
     mode: 'vertical',
-    wrapFlex: 'column',
+    wrapFlex: 'row',
+    leftClassName: 'left',
   });
 
   const renderChildren = () => {
     switch (currentKey) {
       case "base":
-        return <BaseView />;
+        return <BaseView showMode={initConfig.showMode} />;
       case "security":
         return <SecurityView />;
       case "binding":
@@ -47,19 +48,28 @@ export default memo(() => {
       const { offsetWidth } = dom.current;
       if (offsetWidth > 850) {
         console.log(1, offsetWidth);
-        console.log(showMode !== 'large');
-        showMode !== 'large' && setShowMode('large') && setInitConfig({
-          mode: 'vertical',
-          wrapFlex: 'column',
-        })
+        if (initConfig.showMode !== 'large') {
+          setInitConfig({
+            showMode: 'large',
+            mode: 'vertical',
+            wrapFlex: 'row',
+            leftClassName: 'left',
+          })
+        }
+        console.log(initConfig.showMode, initConfig);
       }
       // window.innerWidth
       if (offsetWidth < 850) {
         console.log(2, offsetWidth);
-        showMode !== 'small' && setShowMode('small') && setInitConfig({
-          mode: 'horizontal',
-          wrapFlex: 'inherit',
-        })
+        if (initConfig.showMode !== 'small') {
+          setInitConfig({
+            showMode: 'small',
+            mode: 'horizontal',
+            wrapFlex: 'column',
+            leftClassName: 'small-left',
+          })
+        }
+        console.log(initConfig.showMode, initConfig);
       }
     });
   };
@@ -72,7 +82,7 @@ export default memo(() => {
     return () => {
       window.removeEventListener('resize', resize);
     };
-  }, [dom.current, showMode]);
+  }, [dom.current, initConfig, currentKey]);
 
   const onClick = ({ key }) => {
     setCurrentKey(key);
@@ -82,7 +92,7 @@ export default memo(() => {
     <ConentWrapper>
       <Card bodyStyle={{ padding: "16px 0" }}>
         <div ref={dom} style={{ display: "flex", flexDirection: initConfig.wrapFlex }}>
-          <div className="left">
+          <div className={initConfig.leftClassName}>
             <Menu items={items} mode={initConfig.mode} selectedKeys={[currentKey]} onClick={onClick} />
           </div>
           <div className="right">
@@ -91,6 +101,6 @@ export default memo(() => {
           </div>
         </div>
       </Card>
-    </ConentWrapper>
+    </ConentWrapper >
   );
 });

@@ -64,7 +64,7 @@ export default memo(() => {
         {!collapsed ? <span className="App-title">react-system</span> : null}
       </LogoWrapper>
       <Menu
-        defaultSelectedKeys={["1-1"]}
+        defaultSelectedKeys={["/base/biology"]}
         defaultOpenKeys={["1"]}
         selectedKeys={[history.location.pathname]}
         mode="inline"

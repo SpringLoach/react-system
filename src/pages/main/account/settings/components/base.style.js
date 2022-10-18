@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const BaseWrapper = styled.div`
   display: flex;
+  flex-direction: ${props => props.flexDirection};
   .province {
     label {
       font-weight: 600;
