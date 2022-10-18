@@ -22,7 +22,7 @@ function getItem(label, key, icon, children, type) {
 }
 
 const items = [
-  getItem("基础使用", "1", <ReadOutlined />, [
+  getItem("基础使用", "base", <ReadOutlined />, [
     getItem("静态表格", "/base/biology"),
     getItem("动态表格", "/base/hero"),
   ]),
@@ -32,7 +32,7 @@ const items = [
     getItem("z4a图传", "https://z4a.net/"),
     getItem("CodeTop", "https://codetop.cc/login"),
   ]),
-  getItem("我的", "3", <UserOutlined />, [
+  getItem("我的", "account", <UserOutlined />, [
     getItem("个人设置", "/account/settings"),
   ]),
 ];
@@ -45,8 +45,10 @@ export default memo(() => {
     };
   }, shallowEqual);
 
-  const [currentKey, setCurrentKey] = useState();
   const history = useHistory();
+  const { pathname } = history.location;
+  const [currentKey, setCurrentKey] = useState(pathname);
+  const [openKey, setOpenKey] = useState(pathname.split("/")[1]);
 
   const clickMenuItem = ({ key }) => {
     if (key.indexOf("http") !== -1) {
@@ -57,6 +59,10 @@ export default memo(() => {
     setCurrentKey(key);
   };
 
+  const onOpenChange = (e) => {
+    setOpenKey(e[e.length - 1]);
+  };
+
   return (
     <>
       <LogoWrapper justifyContent={collapsed ? "center" : "initial"}>
@@ -64,13 +70,13 @@ export default memo(() => {
         {!collapsed ? <span className="App-title">react-system</span> : null}
       </LogoWrapper>
       <Menu
-        defaultSelectedKeys={["/base/biology"]}
-        defaultOpenKeys={["1"]}
-        selectedKeys={[history.location.pathname]}
+        openKeys={[openKey]}
+        selectedKeys={[currentKey]}
         mode="inline"
         theme="dark"
         items={items}
         onClick={clickMenuItem}
+        onOpenChange={onOpenChange}
       />
     </>
   );
