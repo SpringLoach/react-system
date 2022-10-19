@@ -5,6 +5,7 @@ import Login from "@/pages/login";
 import Main from "@/pages/main";
 import Biology from "@/pages/main/base/biology";
 import Hero from "@/pages/main/base/hero";
+import StepForm from "@/pages/main/base/step-form";
 import Settings from "@/pages/main/account/settings";
 
 const routes = [
@@ -33,6 +34,10 @@ const routes = [
       {
         path: "/base/hero",
         component: Hero,
+      },
+      {
+        path: "/base/step-form",
+        component: StepForm,
       },
     ],
   },

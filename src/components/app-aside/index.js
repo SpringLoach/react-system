@@ -25,6 +25,7 @@ const items = [
   getItem("基础使用", "base", <ReadOutlined />, [
     getItem("静态表格", "/base/biology"),
     getItem("动态表格", "/base/hero"),
+    getItem("分步表单", "/base/step-form"),
   ]),
   getItem("文档", "2", <FileSearchOutlined />, [
     getItem("antd文档", "https://ant.design/components/overview-cn/"),

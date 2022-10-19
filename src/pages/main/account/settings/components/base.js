@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 
-import { Form, Input, Select, Button, Upload } from "antd";
+import { Form, Input, Select, Button, Upload, Tooltip } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { BaseWrapper, Left, Right, ImgWrapper } from "./base.style"
 
@@ -12,10 +12,12 @@ const AvatarView = memo(() => {
     </ImgWrapper>
     <Upload showUploadList={false}>
       <div>
-        <Button style={{ marginBottom: '20px' }}>
-          <UploadOutlined />
-          更换头像
-        </Button>
+        <Tooltip title="图片不会保存到服务器，请设置表单的头像地址">
+          <Button style={{ marginBottom: '20px' }}>
+            <UploadOutlined />
+            更换头像
+          </Button>
+        </Tooltip>
       </div>
     </Upload>
   </>
@@ -25,6 +27,7 @@ export default memo((props) => {
   const { showMode } = props;
 
   const onFinish = (values) => {
+    delete values.phoneSet
     console.log('Success:', values);
   };
 
@@ -74,6 +77,12 @@ export default memo((props) => {
             label="头像地址"
             name="avatar"
             style={{ maxWidth: "328px" }}
+            rules={[
+              {
+                required: true,
+                message: '请输入您的头像地址!',
+              },
+            ]}
           >
             <Input placeholder="请输入" allowClear />
           </Form.Item>
@@ -140,19 +149,27 @@ export default memo((props) => {
           >
             <Input placeholder="请输入" allowClear />
           </Form.Item>
-          <Form.Item label="联系电话" style={{ margin: 0 }}>
+          <Form.Item name='phoneSet' dependencies={['pre', 'phone']} label="联系电话" rules={[
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                console.log(222, getFieldValue('pre'), getFieldValue('phone'));
+                if (!getFieldValue('pre') || !getFieldValue('phone')) {
+                  return Promise.reject(new Error('请输入您的联系电话'));
+                }
+                return Promise.resolve();
+              },
+            }),
+          ]}>
             <Input.Group compact>
               <Form.Item
                 name='pre'
-                style={{ width: "72px", marginRight: "10px" }}
-                rules={[{ required: true, message: '请输入!' }]}
+                style={{ width: "72px", margin: "0 10px 0 0" }}
               >
                 <Input />
               </Form.Item>
               <Form.Item
                 name='phone'
-                style={{ width: "214px" }}
-                rules={[{ required: true, message: '请输入!' }]}
+                style={{ width: "214px", margin: 0 }}
               >
                 <Input />
               </Form.Item>

@@ -7,6 +7,8 @@ import zh_CN from "antd/es/locale/zh_CN";
 import en_US from "antd/es/locale/en_US";
 import zh_HK from "antd/es/locale/zh_HK";
 
+import 'moment/locale/zh-cn'
+
 import routes from "./router";
 // 引入以支持共享
 import store from "./store";
