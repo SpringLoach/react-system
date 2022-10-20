@@ -6,6 +6,7 @@ import { renderRoutes } from "react-router-config";
 
 import AppHeader from "@/components/app-header";
 import AppAside from "@/components/app-aside";
+import AppFooter from "@/components/app-footer";
 import AuthComponent from "@/components/auth-component";
 const { Header, Sider, Content } = Layout;
 
@@ -19,7 +20,7 @@ const Main = memo((props) => {
   return (
     <AuthComponent>
       <Layout className="layout" style={{ maxHeight: "100vh" }}>
-        <Sider collapsible collapsed={collapsed}>
+        <Sider collapsible collapsed={collapsed} trigger={null}>
           <AppAside />
         </Sider>
         <Layout>
@@ -28,6 +29,7 @@ const Main = memo((props) => {
           </Header>
           <Content className="global-content" style={{ overflow: "auto" }}>
             {renderRoutes(props.route.routes)}
+            <AppFooter />
           </Content>
         </Layout>
       </Layout>

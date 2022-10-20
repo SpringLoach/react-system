@@ -42,4 +42,14 @@ export const HeaderWrapper = styled.div`
   .nickname {
     color: grey;
   }
+  .show-input {
+    width: 160px;
+    background: #f0f2f5;
+    border: none;
+  }
+  .hidden-input {
+    width: 0;
+    padding: 0;
+    border: none;
+  }
 `;

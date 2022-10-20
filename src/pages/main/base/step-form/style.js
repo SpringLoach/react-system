@@ -34,3 +34,11 @@ export const FromWrapper = styled.div`
   max-width: 100%;
   margin: 24px auto 30px;
 `;
+
+export const ThirdStepContentWrapper = styled.div`
+  .result-description {
+    width: 520px;
+    background-color: #fafafa;
+    padding: 24px 40px;
+  }
+`;

@@ -8,7 +8,7 @@ import {
 import { UserContext } from "@/App";
 
 import { logOut } from "@/utils/user";
-import { Dropdown, Menu, Badge, Button } from "antd";
+import { Dropdown, Menu, Badge, Button, Input } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -56,14 +56,10 @@ const menu = (
       {
         key: "2",
         label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.aliyun.com"
-          >
+          <NavLink exact to="/account/settings">
             <SettingOutlined {...MenuIconAttr} />
             个人设置
-          </a>
+          </NavLink>
         ),
       },
       {
@@ -134,6 +130,8 @@ export default memo(() => {
   }, shallowEqual);
   const dispatch = useDispatch();
 
+  const [showInput, setShowInput] = useState(false);
+
   return (
     <HeaderWrapper>
       <Button
@@ -145,7 +143,12 @@ export default memo(() => {
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </Button>
       <div className="header-right">
-        <SearchOutlined className="tip-item" />
+        <SearchOutlined className="tip-item" onClick={() => { setShowInput(!showInput) }} />
+        <Input
+          placeholder="search something..."
+          className={showInput ? 'show-input' : 'hidden-input'}
+          onBlur={() => { setShowInput(false) }}
+        />
         <QuestionCircleOutlined className="tip-item" />
         <Badge count={88} className="tip-item">
           <BellOutlined />
@@ -156,11 +159,6 @@ export default memo(() => {
             <span className="nickname">{userInfo.nickname}</span>
           </div>
         </Dropdown>
-        {/* <FontSizeOutlined
-                onClick={() => {
-                  value.func();
-                }}
-              /> */}
         <UserContext.Consumer>
           {(value) => {
             return (
