@@ -17,6 +17,9 @@ export const HeaderWrapper = styled.div`
     display: flex;
     align-items: center;
   }
+  .notify {
+    position: relative;
+  }
   .tip-item {
     margin: 0 10px;
     cursor: pointer;

@@ -3,11 +3,10 @@ import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {
   changeUserInfoAction,
-  changeLanguageAction,
 } from "@/pages/main/store/actionCreators";
 import { UserContext } from "@/App";
-
 import { logOut } from "@/utils/user";
+
 import { Dropdown, Menu, Badge, Button, Input } from "antd";
 import {
   MenuUnfoldOutlined,
@@ -20,6 +19,7 @@ import {
   BellOutlined,
   FontSizeOutlined,
 } from "@ant-design/icons";
+import Notification from "./components/notification"
 import { HeaderWrapper } from "./style";
 
 const MenuIconAttr = {
@@ -131,6 +131,7 @@ export default memo(() => {
   const dispatch = useDispatch();
 
   const [showInput, setShowInput] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   return (
     <HeaderWrapper>
@@ -150,9 +151,12 @@ export default memo(() => {
           onBlur={() => { setShowInput(false) }}
         />
         <QuestionCircleOutlined className="tip-item" />
-        <Badge count={88} className="tip-item">
-          <BellOutlined />
-        </Badge>
+        <div className="notify">
+          <Badge count={12} className="tip-item" onClick={() => { setShowNotification(true) }}>
+            <BellOutlined />
+          </Badge>
+          {showNotification && <Notification closeNotification={() => { setShowNotification(false) }} />}
+        </div>
         <Dropdown overlay={menu} placement="bottomRight">
           <div style={{ marginLeft: "10px" }}>
             <img className="avator-img" src={userInfo.avator} alt="" />
