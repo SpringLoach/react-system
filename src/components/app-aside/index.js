@@ -22,7 +22,7 @@ function getItem(label, key, icon, children, type) {
 }
 
 const items = [
-  getItem("基础使用", "base", <ReadOutlined />, [
+  getItem("基础使用", "/base", <ReadOutlined />, [
     getItem("静态表格", "/base/biology"),
     getItem("动态表格", "/base/hero"),
     getItem("分步表单", "/base/step-form"),
@@ -33,9 +33,43 @@ const items = [
     getItem("z4a图传", "https://z4a.net/"),
     getItem("CodeTop", "https://codetop.cc/login"),
   ]),
-  getItem("我的", "account", <UserOutlined />, [
+  getItem("我的", "/account", <UserOutlined />, [
+    getItem("个人中心", "/account/center"),
     getItem("个人设置", "/account/settings"),
   ]),
+];
+
+const items2 = [
+  {
+    label: '基础使用',
+    key: 'base',
+    icon: <ReadOutlined />,
+    children: [
+      {
+        label: '静态表格',
+        key: '/base/biology',
+      },
+      {
+        label: '动态表格',
+        key: '/base/hero',
+      },
+      {
+        label: '分步表单',
+        key: '/base/step-form',
+      },
+    ]
+  },
+  {
+    label: '我的',
+    key: 'account',
+    icon: <UserOutlined />,
+    children: [
+      {
+        label: '个人设置',
+        key: '/account/settings',
+      },
+    ]
+  },
 ];
 
 export default memo(() => {
@@ -49,7 +83,7 @@ export default memo(() => {
   const history = useHistory();
   const { pathname } = history.location;
   const [currentKey, setCurrentKey] = useState(pathname);
-  const [openKey, setOpenKey] = useState(pathname.split("/")[1]);
+  const [openKey, setOpenKey] = useState('/' + pathname.split("/")[1]);
 
   const clickMenuItem = ({ key }) => {
     if (key.indexOf("http") !== -1) {

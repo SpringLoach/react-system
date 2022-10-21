@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import {
   changeUserInfoAction,
 } from "@/pages/main/store/actionCreators";
-import { UserContext } from "@/App";
+import { UserContext } from "@/components/config-component";
 import { logOut } from "@/utils/user";
 
 import { Dropdown, Menu, Badge, Button, Input } from "antd";
