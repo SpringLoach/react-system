@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
+import React, { memo, useState, useRef } from 'react';
 
-import { Row, Col, Card, Divider, Tag } from "antd";
-import { IdcardOutlined, ClusterOutlined, HomeOutlined } from "@ant-design/icons";
+import { Row, Col, Card, Divider, Tag, Input } from "antd";
+import { IdcardOutlined, ClusterOutlined, HomeOutlined, PlusOutlined } from "@ant-design/icons";
 import { PageWrapper } from "./style";
 
 const skillList = [
@@ -38,7 +38,47 @@ const skillList = [
   },
 ]
 
+let tagList = [
+  "不怕困难的",
+  "游戏爱好者",
+  "美食",
+  "爬山/跑步",
+  "炒牛河",
+  "细心",
+  "冷静沉着",
+  "学无止境",
+]
+
 export default memo(() => {
+  const ref = useRef(null);
+  const [newTags, setNewTags] = useState([]);
+  const [inputVisible, setInputVisible] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+
+  const showInput = () => {
+    setInputVisible(true);
+    setTimeout(() => {
+      if (ref.current) {
+        // eslint-disable-next-line no-unused-expressions
+        ref.current?.focus();
+      }
+    }, 0)
+  };
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleInputConfirm = () => {
+    let tempsTags = [...newTags];
+    if (inputValue && !tempsTags.includes(inputValue)) {
+      tempsTags = [...tempsTags, inputValue];
+    }
+    setNewTags(tempsTags);
+    setInputVisible(false);
+    setInputValue('');
+  };
+
   return (
     <PageWrapper>
       <Row gutter={24}>
@@ -58,13 +98,26 @@ export default memo(() => {
             <div className='tag-wrap'>
               <div className='item-title'>标签</div>
               <div className='tag-list'>
-                <Tag className='tag-item'>不怕困难的</Tag>
-                <Tag>游戏爱好者</Tag>
-                <Tag>美食</Tag>
-                <Tag>爬山/跑步</Tag>
-                <Tag>炒牛河</Tag>
-                <Tag>冷静沉着</Tag>
-                <Tag>学无止境</Tag>
+                {
+                  (tagList || []).concat(newTags).map(item => <Tag key={item} className='tag-item'>{item}</Tag>)
+                }
+                {inputVisible && (
+                  <Input
+                    ref={ref}
+                    type="text"
+                    size="small"
+                    style={{ width: 78 }}
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    onBlur={handleInputConfirm}
+                    onPressEnter={handleInputConfirm}
+                  />
+                )}
+                {!inputVisible && (
+                  <Tag onClick={showInput} style={{ borderStyle: 'dashed' }}>
+                    <PlusOutlined />
+                  </Tag>
+                )}
               </div>
             </div>
             <Divider dashed />
@@ -91,6 +144,6 @@ export default memo(() => {
           <Card>todo</Card>
         </Col>
       </Row>
-    </PageWrapper>
+    </PageWrapper >
   )
 })
