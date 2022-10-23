@@ -114,7 +114,6 @@ export default memo(() => {
     });
   };
   const onFinish = (value) => {
-    console.log(value);
     setQuery({
       ...value,
       pageNum: 1,

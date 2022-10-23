@@ -22,7 +22,7 @@ instance.interceptors.request.use(
       window.location.hash = "/base";
     }
     // 3.params/data序列化的操作
-    console.log("config", config);
+    // console.log("config", config);
     return config;
   },
   (err) => {}

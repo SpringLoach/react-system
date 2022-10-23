@@ -36,7 +36,7 @@ export const HeaderWrapper = styled.div`
       background: #f5f5f5;
     }
   }
-  .avator-img {
+  .avatar-img {
     width: 24px;
     height: 24px;
     border-radius: 50%;

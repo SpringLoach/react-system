@@ -1,9 +1,7 @@
 import React, { memo, useState } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { NavLink } from "react-router-dom";
-import {
-  changeUserInfoAction,
-} from "@/pages/main/store/actionCreators";
+import { changeUserInfoAction } from "@/pages/main/store/actionCreators";
 import { UserContext } from "@/components/config-component";
 import { logOut } from "@/utils/user";
 
@@ -19,7 +17,7 @@ import {
   BellOutlined,
   FontSizeOutlined,
 } from "@ant-design/icons";
-import Notification from "./components/notification"
+import Notification from "./components/notification";
 import { HeaderWrapper } from "./style";
 
 const MenuIconAttr = {
@@ -144,23 +142,49 @@ export default memo(() => {
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </Button>
       <div className="header-right">
-        <SearchOutlined className="tip-item" onClick={() => { setShowInput(!showInput) }} />
+        <SearchOutlined
+          className="tip-item"
+          onClick={() => {
+            setShowInput(!showInput);
+          }}
+        />
         <Input
           placeholder="search something..."
-          className={showInput ? 'show-input' : 'hidden-input'}
-          onBlur={() => { setShowInput(false) }}
+          className={showInput ? "show-input" : "hidden-input"}
+          onBlur={() => {
+            setShowInput(false);
+          }}
         />
         <QuestionCircleOutlined className="tip-item" />
         <div className="notify">
-          <Badge count={12} className="tip-item" onClick={() => { setShowNotification(true) }}>
+          <Badge
+            count={12}
+            className="tip-item"
+            onClick={() => {
+              setShowNotification(true);
+            }}
+          >
             <BellOutlined />
           </Badge>
-          {showNotification && <Notification closeNotification={() => { setShowNotification(false) }} />}
+          {showNotification && (
+            <Notification
+              closeNotification={() => {
+                setShowNotification(false);
+              }}
+            />
+          )}
         </div>
         <Dropdown overlay={menu} placement="bottomRight">
           <div style={{ marginLeft: "10px" }}>
-            <img className="avator-img" src={userInfo.avator} alt="" />
-            <span className="nickname">{userInfo.nickname}</span>
+            <img
+              className="avatar-img"
+              src={
+                userInfo.avatar ||
+                "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fblog%2F202012%2F26%2F20201226211434_03e58.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1669134347&t=007b2f08d71bb0e807880b8ba8d793e6"
+              }
+              alt=""
+            />
+            <span className="nickname">{userInfo.nickname || "匿名用户"}</span>
           </div>
         </Dropdown>
         <UserContext.Consumer>

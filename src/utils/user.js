@@ -14,7 +14,7 @@ const logOut = function () {
     name: undefined,
     token: null,
     nickname: undefined,
-    avator: undefined,
+    avatar: undefined,
   };
   store.dispatch(changeUserInfoAction(data));
 };

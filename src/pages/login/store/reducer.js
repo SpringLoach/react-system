@@ -8,7 +8,7 @@ const defaultState = Map({
     name: undefined,
     token: null,
     nickname: undefined,
-    avator: undefined,
+    avatar: undefined,
   },
 });
 

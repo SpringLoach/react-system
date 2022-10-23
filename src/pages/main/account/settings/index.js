@@ -47,7 +47,6 @@ export default memo(() => {
       }
       const { offsetWidth } = dom.current;
       if (offsetWidth > 850) {
-        console.log(1, offsetWidth);
         if (initConfig.showMode !== 'large') {
           setInitConfig({
             showMode: 'large',
@@ -56,11 +55,9 @@ export default memo(() => {
             leftClassName: 'left',
           })
         }
-        console.log(initConfig.showMode, initConfig);
       }
       // window.innerWidth
       if (offsetWidth < 850) {
-        console.log(2, offsetWidth);
         if (initConfig.showMode !== 'small') {
           setInitConfig({
             showMode: 'small',
@@ -69,7 +66,6 @@ export default memo(() => {
             leftClassName: 'small-left',
           })
         }
-        console.log(initConfig.showMode, initConfig);
       }
     });
   };

@@ -6,6 +6,5 @@ export function getList(data) {
     method: "post",
     url: "/hero/list",
     data,
-    public: true,
   });
 }

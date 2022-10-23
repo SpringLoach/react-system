@@ -25,7 +25,6 @@ export default memo((props) => {
     setOpen(true);
     // 编辑时
     if (model === "edit") {
-      console.log(record);
       const { id, name, author, cover, progress, region, theme, type } = record;
       form.setFieldsValue({
         id,

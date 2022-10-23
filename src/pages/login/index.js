@@ -30,7 +30,7 @@ const login = memo((props) => {
     dispatch(changeUserInfoAction(data));
     window.sessionStorage.setItem("userInfo", JSON.stringify(data));
     props.history.push("/base");
-    message.success(`您好，${data.nickname}，欢迎回来`);
+    message.success(`您好，${data.nickname || '匿名用户'}，欢迎回来`);
   };
 
   const onFinishFailed = (errorInfo) => {
