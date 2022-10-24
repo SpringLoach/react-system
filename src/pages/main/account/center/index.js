@@ -1,6 +1,8 @@
 import React, { memo, useState, useRef } from 'react';
 
-import { Row, Col, Card, Divider, Tag, Input } from "antd";
+import Project from "./components/project"
+import Reference from "./components/reference"
+import { Row, Col, Card, Divider, Tag, Input, Tabs } from "antd";
 import { IdcardOutlined, ClusterOutlined, HomeOutlined, PlusOutlined } from "@ant-design/icons";
 import { PageWrapper } from "./style";
 
@@ -48,6 +50,11 @@ let tagList = [
   "冷静沉着",
   "学无止境",
 ]
+
+const items = [
+  { label: '项目介绍', key: 'project', children: <Project /> },
+  { label: '技术栈', key: 'reference', children: <Reference /> },
+];
 
 export default memo(() => {
   const ref = useRef(null);
@@ -141,7 +148,9 @@ export default memo(() => {
           </Card>
         </Col>
         <Col lg={17} sm={24} xs={24}>
-          <Card>todo</Card>
+          <Card>
+            <Tabs items={items} />
+          </Card>
         </Col>
       </Row>
     </PageWrapper >

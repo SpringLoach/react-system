@@ -4,7 +4,7 @@ import { getInfo, setInfo } from "@/api/main/account/settings";
 
 import { Form, Input, Select, Button, Upload, Tooltip, message } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-import { BaseWrapper, Left, Right, ImgWrapper } from "./base.style";
+import { BaseWrapper, Left, Right, ImgWrapper } from "./base-style";
 
 const AvatarView = memo((props) => {
   return (

@@ -41,14 +41,10 @@ const menu = (
       {
         key: "1",
         label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.antgroup.com"
-          >
+          <NavLink exact to="/account/center">
             <UserOutlined {...MenuIconAttr} />
             个人中心
-          </a>
+          </NavLink>
         ),
       },
       {

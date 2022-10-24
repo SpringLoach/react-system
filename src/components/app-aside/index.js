@@ -30,7 +30,7 @@ const items = [
   getItem("文档", "2", <FileSearchOutlined />, [
     getItem("antd文档", "https://ant.design/components/overview-cn/"),
     getItem("logo设计", "https://logomakr.com/"),
-    getItem("z4a图传", "https://z4a.net/"),
+    getItem("z4a图床", "https://z4a.net/"),
     getItem("CodeTop", "https://codetop.cc/login"),
   ]),
   getItem("我的", "/account", <UserOutlined />, [
