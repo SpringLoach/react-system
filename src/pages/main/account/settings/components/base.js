@@ -1,4 +1,6 @@
 import React, { memo, useEffect, useState } from "react";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
+import { changeUserInfoAction } from "@/pages/login/store/actionCreators";
 import { getProvinceList, getCityList } from "@/api/main/account/settings";
 import { getInfo, setInfo } from "@/api/main/account/settings";
 
@@ -28,6 +30,14 @@ const AvatarView = memo((props) => {
 });
 
 export default memo((props) => {
+  // 获取 redux 中的状态、dispatch方法
+  const { userInfo } = useSelector((state) => {
+    return {
+      userInfo: state.getIn(["login", "userInfo"]),
+    };
+  }, shallowEqual);
+  const dispatch = useDispatch();
+
   const { showMode } = props;
 
   const [form] = Form.useForm();
@@ -82,6 +92,14 @@ export default memo((props) => {
     delete values.phone;
     const { data } = await setInfo(values);
     if (!data) return;
+    // 改动同步到状态中
+    let newState = JSON.parse(JSON.stringify(userInfo));
+    newState = {
+      ...newState,
+      avatar: values.avatar,
+      nickname: values.nickname,
+    };
+    dispatch(changeUserInfoAction(newState));
     message.success("编辑成功！");
   };
 
