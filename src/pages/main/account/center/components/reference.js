@@ -166,7 +166,7 @@ export default memo(() => {
           <List.Item onClick={() => { openWeb(item.link) }}>
             <Card
               hoverable
-              cover={<img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/iZBVOIhGJiAnhplqjvZW.png" />}
+              cover={<img alt="example" src="https://z4a.net/images/2022/10/24/1.webp" />}
             >
               <Card.Meta title={<a className='card-title'>{item.title}</a>} description={item.subDescription} />
               <div className='item-footer'>

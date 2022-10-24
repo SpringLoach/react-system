@@ -9,34 +9,34 @@ import { PageWrapper } from "./style";
 const skillList = [
   {
     title: 'Vue2全家桶',
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png'
+    img: 'https://z4a.net/images/2022/10/24/mark.png'
   }, {
     title: 'Vue3全家桶',
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png'
+    img: 'https://z4a.net/images/2022/10/24/mark.png'
   }, {
     title: '微信小程序',
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png'
+    img: 'https://z4a.net/images/2022/10/24/mark.png'
   }, {
     title: 'uni-app',
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png'
+    img: 'https://z4a.net/images/2022/10/24/mark.png'
   }, {
     title: 'TypeScript',
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png'
+    img: 'https://z4a.net/images/2022/10/24/mark.png'
   }, {
     title: 'React',
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png'
+    img: 'https://z4a.net/images/2022/10/24/mark.png'
   }, {
     title: 'Node.js',
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png'
+    img: 'https://z4a.net/images/2022/10/24/mark.png'
   }, {
     title: 'MySQL',
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png'
+    img: 'https://z4a.net/images/2022/10/24/mark.png'
   }, {
     title: '数据结构与算法',
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png'
+    img: 'https://z4a.net/images/2022/10/24/mark.png'
   }, {
     title: '网络协议',
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png'
+    img: 'https://z4a.net/images/2022/10/24/mark.png'
   },
 ]
 
