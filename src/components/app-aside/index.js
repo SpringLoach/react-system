@@ -36,6 +36,7 @@ const items = [
   getItem("我的", "/account", <UserOutlined />, [
     getItem("个人中心", "/account/center"),
     getItem("个人设置", "/account/settings"),
+    getItem("页脚设置", "/account/footer-config"),
   ]),
 ];
 

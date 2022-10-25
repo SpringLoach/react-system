@@ -8,6 +8,7 @@ import Hero from "@/pages/main/base/hero";
 import StepForm from "@/pages/main/base/step-form";
 import Center from "@/pages/main/account/center";
 import Settings from "@/pages/main/account/settings";
+import FooterConfig from "@/pages/main/account/footer-config";
 
 const routes = [
   {
@@ -58,6 +59,10 @@ const routes = [
       {
         path: "/account/center",
         component: Center,
+      },
+      {
+        path: "/account/footer-config",
+        component: FooterConfig,
       },
     ],
   },
