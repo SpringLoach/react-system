@@ -12,7 +12,7 @@ import {
   IconWrapper,
   ContentWrapper,
   ToDoItem,
-} from "./style";
+} from "./notification-style";
 
 const data = [
   {

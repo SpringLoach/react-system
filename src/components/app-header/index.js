@@ -13,10 +13,10 @@ import {
   SettingOutlined,
   LogoutOutlined,
   SearchOutlined,
-  QuestionCircleOutlined,
   BellOutlined,
   FontSizeOutlined,
 } from "@ant-design/icons";
+import Resize from "./components/resize"
 import Notification from "./components/notification";
 import { HeaderWrapper } from "./style";
 
@@ -151,7 +151,7 @@ export default memo(() => {
             setShowInput(false);
           }}
         />
-        <QuestionCircleOutlined className="tip-item" />
+        <Resize />
         <div className="notify">
           <Badge
             count={12}

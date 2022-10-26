@@ -9,6 +9,7 @@ import StepForm from "@/pages/main/base/step-form";
 import Center from "@/pages/main/account/center";
 import Settings from "@/pages/main/account/settings";
 import FooterConfig from "@/pages/main/account/footer-config";
+import User from "@/pages/main/system/user";
 
 const routes = [
   {
@@ -63,6 +64,21 @@ const routes = [
       {
         path: "/account/footer-config",
         component: FooterConfig,
+      },
+    ],
+  },
+  {
+    path: "/system",
+    component: Main,
+    routes: [
+      {
+        path: "/system",
+        exact: true,
+        render: () => <Redirect to="/system/user" />,
+      },
+      {
+        path: "/system/user",
+        component: User,
       },
     ],
   },
