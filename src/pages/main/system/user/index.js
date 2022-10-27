@@ -1,7 +1,8 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 
 import { Card, Table, Button, Image, Tag } from "antd"
 import Search from "./components/search"
+import TableController from "@/components/table-controller"
 import { ConentWrapper } from "./style"
 
 const columns = [
@@ -69,15 +70,22 @@ const columns = [
 ];
 
 export default memo(() => {
+  const [extraAttr, setExtraAttr] = useState({});
+
+  const changeExtraAttr = (e) => {
+    setExtraAttr(e)
+  }
 
   const Main = memo(() => {
     return (
       <>
+        <TableController changeExtraAttr={changeExtraAttr} />
         <Table
           dataSource={[]}
           columns={columns}
           rowKey="cname"
           pagination={false}
+          {...extraAttr}
         />
       </>
     );
