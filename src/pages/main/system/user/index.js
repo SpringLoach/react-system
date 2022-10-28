@@ -70,7 +70,7 @@ const columns = [
 ];
 
 export default memo(() => {
-  const [extraAttr, setExtraAttr] = useState({});
+  const [extraAttr, setExtraAttr] = useState({ showHeader: true, size: 'default' });
 
   const changeExtraAttr = (e) => {
     setExtraAttr(e)
@@ -79,7 +79,7 @@ export default memo(() => {
   const Main = memo(() => {
     return (
       <>
-        <TableController changeExtraAttr={changeExtraAttr} />
+        <TableController extraAttr={extraAttr} changeExtraAttr={changeExtraAttr} />
         <Table
           dataSource={[]}
           columns={columns}

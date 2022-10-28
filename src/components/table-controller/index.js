@@ -1,21 +1,37 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useEffect } from 'react'
 
-import { Dropdown, Menu, Tooltip } from "antd"
+import { Dropdown, Menu, Tooltip, Checkbox, Button } from "antd"
 import { ColumnHeightOutlined, RedoOutlined, SettingOutlined } from "@ant-design/icons"
-import { ConentWrapper } from "./style"
+import { ConentWrapper, ColumnSettingsWrapper } from "./style"
 
 export default memo((props) => {
-  const { changeExtraAttr } = props
+  const { extraAttr, changeExtraAttr } = props
+  const [copyExtraAttr, setCopyExtraAttr] = useState(extraAttr);
   const [showColumnSettings, setShowColumnSettings] = useState(false);
+
+  useEffect(() => {
+    function func(e) {
+      const target = document.getElementsByClassName("column-settings-wrapper")[0];
+      if (!e.path.includes(target)) {
+        setShowColumnSettings(false);
+      }
+    }
+    document.addEventListener("mousedown", func);
+    return () => {
+      document.removeEventListener("mousedown", func);
+    };
+  });
 
   const resize = ({ key }) => {
     changeExtraAttr({
+      ...extraAttr,
       size: key
     })
   }
   const menu = (
     <Menu
       onClick={resize}
+      selectedKeys={[copyExtraAttr.size]}
       items={[
         {
           key: 'default',
@@ -33,14 +49,28 @@ export default memo((props) => {
     />
   );
 
-  const dos = () => {
-    changeExtraAttr({
-      size: 'small'
+  const changeCustom = ({ target }, key) => {
+    let value = target.checked
+    if (key === 'rowSelection') {
+      value = target.checked ? {} : undefined
+    }
+    setCopyExtraAttr({
+      ...copyExtraAttr,
+      [key]: value
     })
   }
 
   const ColumnSettings = memo(() => {
-    return <span onClick={dos}>123</span>
+    return (
+      <ColumnSettingsWrapper className='column-settings-wrapper'>
+        <div className='checkbox-group-row'>
+          <Checkbox checked={copyExtraAttr.rowSelection} onChange={(event) => { changeCustom(event, 'rowSelection') }}>复选</Checkbox>
+          <Checkbox checked={copyExtraAttr.showHeader} onChange={(event) => { changeCustom(event, 'showHeader') }}>表头</Checkbox>
+          <Checkbox checked={copyExtraAttr.bordered} onChange={(event) => { changeCustom(event, 'bordered') }}>边框</Checkbox>
+        </div>
+        <Button type="link" onClick={() => { changeExtraAttr(copyExtraAttr) }}>确定</Button>
+      </ColumnSettingsWrapper>
+    )
   })
 
   return (

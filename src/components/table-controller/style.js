@@ -12,3 +12,16 @@ export const ConentWrapper = styled.div`
     position: relative;
   }
 `;
+export const ColumnSettingsWrapper = styled.div`
+  position: absolute;
+  right: 0;
+  box-shadow: 0px 0px 12px rgb(0 0 0 / 12%);
+  background: #fff;
+  width: 220px;
+  padding: 4px 10px; 
+  z-index: 998;
+  .checkbox-group-row {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+  }
+`;
