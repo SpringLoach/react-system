@@ -55,4 +55,10 @@ export const HeaderWrapper = styled.div`
     padding: 0;
     border: none;
   }
+  .vip-icon {
+    position: absolute;
+    color: gold;
+    left: 0;
+    transform: translate(14px, 11px);
+  }
 `;

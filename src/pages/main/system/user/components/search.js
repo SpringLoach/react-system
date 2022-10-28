@@ -5,7 +5,7 @@ import {
 } from "antd";
 import SearchForm from "@/components/search-form"
 
-import { HeaderWrapper } from "./style";
+import { HeaderWrapper } from "./search-style";
 
 const searchForm = [
   {

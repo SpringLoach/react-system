@@ -1,8 +1,10 @@
 import React, { memo, useState } from 'react'
 
 import { Card, Table, Button, Image, Tag } from "antd"
-import Search from "./components/search"
+import { CrownOutlined } from "@ant-design/icons"
 import TableController from "@/components/table-controller"
+import Search from "./components/search"
+import EditRoleModal from "./components/edit-role"
 import { ConentWrapper } from "./style"
 
 const columns = [
@@ -56,14 +58,7 @@ const columns = [
     width: "120px",
     render: (_, record) => (
       <>
-        <Button
-          type="link"
-          onClick={() => {
-            window.open(record.infoUrl);
-          }}
-        >
-          查看详情
-        </Button>
+        <EditRoleModal />
       </>
     ),
   },
@@ -93,6 +88,7 @@ export default memo(() => {
   return (
     <ConentWrapper>
       <Card title="用户管理列表">
+        {/* <Card title={true ? <>用户管理列表<CrownOutlined style={{ marginLeft: '6px', color: 'gold' }} /></> : '用户管理列表'}> */}
         <Search />
         <Main />
       </Card>

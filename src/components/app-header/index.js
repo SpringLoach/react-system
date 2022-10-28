@@ -15,6 +15,7 @@ import {
   SearchOutlined,
   BellOutlined,
   FontSizeOutlined,
+  CrownOutlined
 } from "@ant-design/icons";
 import Resize from "./components/resize"
 import Notification from "./components/notification";
@@ -171,7 +172,7 @@ export default memo(() => {
           )}
         </div>
         <Dropdown overlay={menu} placement="bottomRight">
-          <div style={{ marginLeft: "10px" }}>
+          <div style={{ marginLeft: "10px", position: "relative" }}>
             <img
               className="avatar-img"
               src={
@@ -180,6 +181,7 @@ export default memo(() => {
               }
               alt=""
             />
+            <CrownOutlined className="vip-icon" />
             <span className="nickname">{userInfo.nickname || "匿名用户"}</span>
           </div>
         </Dropdown>
