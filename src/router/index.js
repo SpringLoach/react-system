@@ -8,6 +8,7 @@ import Hero from "@/pages/main/base/hero";
 import StepForm from "@/pages/main/base/step-form";
 import Center from "@/pages/main/account/center";
 import Settings from "@/pages/main/account/settings";
+import Diary from "@/pages/main/account/diary";
 import FooterConfig from "@/pages/main/account/footer-config";
 import User from "@/pages/main/system/user";
 import Eat from "@/pages/expand/eat";
@@ -65,6 +66,10 @@ const routes = [
       {
         path: "/account/footer-config",
         component: FooterConfig,
+      },
+      {
+        path: "/account/diary",
+        component: Diary,
       },
     ],
   },
