@@ -10,6 +10,7 @@ import Center from "@/pages/main/account/center";
 import Settings from "@/pages/main/account/settings";
 import FooterConfig from "@/pages/main/account/footer-config";
 import User from "@/pages/main/system/user";
+import Eat from "@/pages/expand/eat";
 
 const routes = [
   {
@@ -81,6 +82,10 @@ const routes = [
         component: User,
       },
     ],
+  },
+  {
+    path: "/eat",
+    component: Eat,
   },
 ];
 
