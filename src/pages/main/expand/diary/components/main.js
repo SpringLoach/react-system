@@ -9,12 +9,16 @@ const text5 = `
 政府给我们一人一份的蔬菜
 
 ----
+
 政府给我们一人一份的蔬菜
 
 (-这里分段-)
+
 故事2: 政府给我们一人一份
+
 [[https://pica.zhimg.com/v2-d41c2ceaed8f51999522f903672a521f_l.jpg?source=1940ef5c]]
 <<蔬菜礼包>>
+
 故事2: 政府给我们一人一份的蔬菜礼包有多的，居委并没有在群里提到这件事情，放了几天之后直接把整袋整袋的蔬菜礼包丢到小区垃圾桶，居民看到之后跑去把垃圾桶翻开，找蔬菜吃，发现丢掉的蔬菜都是好的`
 
 function transformTextareaContent66(text) {
@@ -38,7 +42,7 @@ function getParamsFromBrackets(str) {
 }
 
 function getParamsFromBrackets2(str) {
-  const a = str.replace(/\[\[/g, '<img src="')
+  const a = str.replace(/\[\[/g, '<img style="width: 100%" src="')
   return a.replace(/\]\]/g, '" alt="" />')
 }
 

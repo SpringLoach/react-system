@@ -32,12 +32,14 @@ const items = [
     getItem("个人中心", "/account/center"),
     getItem("个人设置", "/account/settings"),
     getItem("页脚设置", "/account/footer-config"),
-    getItem("日记", "/account/diary"),
   ]),
   getItem("系统管理", "/system", <SettingOutlined />, [
     getItem("用户管理", "/system/user"),
   ]),
-  getItem("趣事鹿", "/expand", <SettingOutlined />, [getItem("eat", "/eat")]),
+  getItem("趣事鹿", "/expand", <SettingOutlined />, [
+    getItem("日记", "/expand/diary"),
+    getItem("eat", "/eat"),
+  ]),
   getItem("文档", "2", <FileSearchOutlined />, [
     getItem("antd文档", "https://ant.design/components/overview-cn/"),
     getItem("logo设计", "https://logomakr.com/"),
