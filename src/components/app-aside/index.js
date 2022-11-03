@@ -37,7 +37,7 @@ const items = [
     getItem("用户管理", "/system/user"),
   ]),
   getItem("趣事鹿", "/expand", <SettingOutlined />, [
-    getItem("日记", "/expand/diary"),
+    getItem("日记", "/expand/diaryList"),
     getItem("eat", "/eat"),
   ]),
   getItem("文档", "2", <FileSearchOutlined />, [

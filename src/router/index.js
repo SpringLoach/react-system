@@ -8,10 +8,11 @@ import Hero from "@/pages/main/base/hero";
 import StepForm from "@/pages/main/base/step-form";
 import Center from "@/pages/main/account/center";
 import Settings from "@/pages/main/account/settings";
-import Diary from "@/pages/main/expand/diary";
+import DiaryList from "@/pages/main/expand/diary";
 import FooterConfig from "@/pages/main/account/footer-config";
 import User from "@/pages/main/system/user";
 import Eat from "@/pages/expand/eat";
+import Diary from "@/pages/expand/diary";
 
 const routes = [
   {
@@ -91,17 +92,21 @@ const routes = [
       {
         path: "/expand",
         exact: true,
-        render: () => <Redirect to="/expand/diary" />,
+        render: () => <Redirect to="/expand/diaryList" />,
       },
       {
-        path: "/expand/diary",
-        component: Diary,
+        path: "/expand/diaryList",
+        component: DiaryList,
       },
     ],
   },
   {
     path: "/eat",
     component: Eat,
+  },
+  {
+    path: "/diary",
+    component: Diary,
   },
 ];
 
