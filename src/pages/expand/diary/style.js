@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-export const PageWrapper = styled.div`
-
-`;
+export const PageWrapper = styled.div``;
 
 export const PageHeader = styled.div`
   height: 80px;
@@ -20,7 +18,9 @@ export const PageHeader = styled.div`
 export const PageContent = styled.div`
   width: 85%;
   margin: auto;
-  @media (min-width: 1100px) {
+  padding-bottom: 24px;
+  @media (min-width: 1070px) {
+    display: flex;
     max-width: 960px;
   }
 `;
@@ -36,7 +36,64 @@ export const ArticleWrap = styled.div`
   .paragraph {
     font-family: sans-serif;
     letter-spacing: 0.05rem;
-    font-size: 16px;
+    font-size: 14px;
     color: #1d1d1d;
+    @media (min-width: 1070px) {
+      font-size: 16px;
+    }
+  }
+  .img-info {
+    color: #999;
+    font-size: 12px;
+    @media (min-width: 1070px) {
+      font-size: 16px;
+    }
+  }
+  img {
+    width: 100%;
+    margin-bottom: 14px;
+  }
+  .img-tip {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    @media (min-width: 1070px) {
+      font-size: 16px;
+    }
+  }
+  .division {
+    height: 1px;
+    width: 100%;
+    background: #f0f0f0;
+    margin-bottom: 14px;
+  }
+  .division-text {
+    display: flex;
+    align-items: center;
+    color: #999;
+    margin-bottom: 14px;
+    .division-item {
+      flex: 1;
+      height: 1px;
+      background: #f0f0f0;
+      &:first-child {
+        margin-right: 12px;
+      }
+      &:last-child {
+        margin-left: 12px;
+      }
+    }
+  }
+`;
+
+export const Aside = styled.div`
+  margin-left: 24px;
+  width: 800px;
+  background: #ccc;
+  display: none;
+  @media (min-width: 1070px) {
+    display: block;
   }
 `;

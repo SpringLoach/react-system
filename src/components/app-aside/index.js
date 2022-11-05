@@ -37,7 +37,9 @@ const items = [
     getItem("用户管理", "/system/user"),
   ]),
   getItem("趣事鹿", "/expand", <SettingOutlined />, [
-    getItem("日记", "/expand/diaryList"),
+    getItem("日记-test", "/expand/diary-list"),
+    getItem("日记-模板", "/diary"),
+    getItem("日记-新建", "/diary-edit"),
     getItem("eat", "/eat"),
   ]),
   getItem("文档", "2", <FileSearchOutlined />, [
@@ -99,7 +101,7 @@ export default memo(() => {
       window.open(key);
       return;
     }
-    if (["/eat"].includes(key)) {
+    if (["/eat", "/diary", "/diary-edit"].includes(key)) {
       window.open(`${window.location.href.split("#")[0]}#` + key);
       return;
     }

@@ -13,6 +13,7 @@ import FooterConfig from "@/pages/main/account/footer-config";
 import User from "@/pages/main/system/user";
 import Eat from "@/pages/expand/eat";
 import Diary from "@/pages/expand/diary";
+import DiaryEdit from "@/pages/expand/diary-edit";
 
 const routes = [
   {
@@ -95,7 +96,7 @@ const routes = [
         render: () => <Redirect to="/expand/diaryList" />,
       },
       {
-        path: "/expand/diaryList",
+        path: "/expand/diary-list",
         component: DiaryList,
       },
     ],
@@ -107,6 +108,10 @@ const routes = [
   {
     path: "/diary",
     component: Diary,
+  },
+  {
+    path: "/diary-edit",
+    component: DiaryEdit,
   },
 ];
 
