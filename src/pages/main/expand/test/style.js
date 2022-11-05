@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
 export const PageWrapper = styled.div`
-  position: relative;
   padding: 24px;
-  padding-bottom: 60px;
-`;
+`
 
 export const ConfigItemWrapper = styled.div`
   padding: 10px 0;
-  &:not(:first-of-type) {
-    border-top: 1px solid #eee;
-  }
+  border-top: 1px solid #ccc;
   .config-top {
     margin-bottom: 10px;
     display: flex;
@@ -22,8 +18,7 @@ export const ConfigItemWrapper = styled.div`
     font-weight: 500;
     transform: translateY(-2px);
   }
-  .dec-icon,
-  .inc-icon {
+  .dec-icon, .inc-icon {
     color: red;
   }
   .inc-icon {
@@ -34,18 +29,4 @@ export const ConfigItemWrapper = styled.div`
     width: 200px;
     margin-right: 10px;
   }
-`;
-
-export const PageFooter = styled.div`
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top: 1px solid #ccc;
-  color: #fff;
-  background: #ff6802;
-`;
+`

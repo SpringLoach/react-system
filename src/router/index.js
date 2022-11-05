@@ -14,6 +14,7 @@ import User from "@/pages/main/system/user";
 import Eat from "@/pages/expand/eat";
 import Diary from "@/pages/expand/diary";
 import DiaryEdit from "@/pages/expand/diary-edit";
+import Test from "@/pages/main/expand/test";
 
 const routes = [
   {
@@ -112,6 +113,10 @@ const routes = [
   {
     path: "/diary-edit",
     component: DiaryEdit,
+  },
+  {
+    path: "/test",
+    component: Test,
   },
 ];
 
