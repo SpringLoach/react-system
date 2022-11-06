@@ -48,4 +48,5 @@ export const PageFooter = styled.div`
   border-top: 1px solid #ccc;
   color: #fff;
   background: #ff6802;
+  cursor: pointer;
 `;

@@ -11,10 +11,11 @@ import Settings from "@/pages/main/account/settings";
 import DiaryList from "@/pages/main/expand/diary";
 import FooterConfig from "@/pages/main/account/footer-config";
 import User from "@/pages/main/system/user";
+import MyRight from "@/pages/main/system/my-right";
 import Eat from "@/pages/expand/eat";
 import Diary from "@/pages/expand/diary";
 import DiaryEdit from "@/pages/expand/diary-edit";
-import Test from "@/pages/main/expand/test";
+import DiaryRecord from "@/pages/expand/diary-record";
 
 const routes = [
   {
@@ -85,6 +86,10 @@ const routes = [
         path: "/system/user",
         component: User,
       },
+      {
+        path: "/system/my-right",
+        component: MyRight,
+      },
     ],
   },
   {
@@ -115,8 +120,8 @@ const routes = [
     component: DiaryEdit,
   },
   {
-    path: "/test",
-    component: Test,
+    path: "/diary-record",
+    component: DiaryRecord,
   },
 ];
 

@@ -35,10 +35,11 @@ const items = [
   ]),
   getItem("系统管理", "/system", <SettingOutlined />, [
     getItem("用户管理", "/system/user"),
+    getItem("权限管理", "/system/my-right"),
   ]),
   getItem("趣事鹿", "/expand", <SettingOutlined />, [
     getItem("日记-test", "/expand/diary-list"),
-    getItem("日记-模板", "/diary"),
+    getItem("日记-列表", "/diary-record"),
     getItem("日记-新建", "/diary-edit"),
     getItem("eat", "/eat"),
   ]),

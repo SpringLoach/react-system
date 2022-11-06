@@ -14,6 +14,9 @@ export const PageWrapper = styled.div`
     font-weight: 700;
     color: #000;
     margin-bottom: 0;
+    @media (max-width: 500px) {
+      font-size: 26px;
+    }
   }
   p {
     margin: 25px 0 0;

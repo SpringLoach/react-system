@@ -1,4 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
+import { parseURLToObj } from "@/utils/common";
+import { query, edit, add } from "@/api/diary/diary";
+import { useHistory } from "react-router-dom";
 
 import {
   Popconfirm,
@@ -104,7 +107,7 @@ const ParagraphConfig = memo(({ item, changeConfig }) => {
       rows={4}
       placeholder="请输入段落内容"
       autoSize={{ minRows: 4 }}
-      defaultValue={item.value}
+      value={item.value}
       onChange={onChange}
     />
   );
@@ -159,7 +162,8 @@ const items = [
   },
 ];
 
-export default memo(() => {
+export default memo((props) => {
+  const [mode, setMode] = useState("create");
   const [config, setConfig] = useState([
     {
       type: "paragraph",
@@ -170,6 +174,27 @@ export default memo(() => {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("日常");
   const [showBtn, setShowBtn] = useState(true);
+  const history = useHistory();
+
+  const queryObj = parseURLToObj(props.location.search);
+  if (queryObj.id && mode === "create") {
+    setMode("edit");
+  }
+
+  useEffect(() => {
+    if (mode === "edit") {
+      initRecord();
+    }
+  }, []);
+
+  const initRecord = async () => {
+    const { data } = await query({ id: queryObj.id });
+    if (!data) return;
+    console.log(111, data);
+    setConfig(JSON.parse(data.config));
+    setTitle(data.title);
+    setType(data.type);
+  };
 
   const onClickMenuItem = ({ key }, index) => {
     const map = {
@@ -232,12 +257,39 @@ export default memo(() => {
     setConfig([...config]);
   };
 
-  const save = () => {
-    console.log({
+  const save = async () => {
+    if (mode === "edit") {
+      editRecord();
+    } else {
+      createRecord();
+    }
+  };
+  const createRecord = async () => {
+    const params = {
       title,
       type,
       config,
-    });
+    };
+    const { data } = await add(params);
+    if (!data) return;
+    message.success("新建成功");
+    setTimeout(() => {
+      history.goBack();
+    }, 1500);
+  };
+  const editRecord = async () => {
+    const params = {
+      title,
+      type,
+      config,
+      id: queryObj.id,
+    };
+    const { data } = await edit(params);
+    if (!data) return;
+    message.success("编辑成功");
+    setTimeout(() => {
+      history.goBack();
+    }, 1500);
   };
 
   // 动态显示按钮

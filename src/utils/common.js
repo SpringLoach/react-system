@@ -26,3 +26,12 @@ export function isFullscreenElement() {
   var isFull = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement || document.mozFullScreenElement;
   return !!isFull;
 }
+// 查询参数转化为对象 (?query=123)
+export function parseURLToObj(target) {
+  let resObj = {}
+  const pList = new URLSearchParams(target)
+  pList.forEach((val, key) => {
+    resObj[key] = val
+  })
+  return resObj //{key:value,key2:value2}
+}
