@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const PageWrapper = styled.div``;
+export const PageWrapper = styled.div`
+  padding-top: 60px;
+  @media (min-width: 800px) {
+    padding-top: 0;
+  }
+`;
 
 export const PageHeader = styled.div`
   height: 80px;

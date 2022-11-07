@@ -4,6 +4,9 @@ export const PageWrapper = styled.div`
   background: #fff;
   min-height: 100vh;
   padding-top: 60px;
+  @media (min-width: 800px) {
+    padding-top: 0;
+  }
 `;
 
 export const PageContent = styled.div`
@@ -23,8 +26,12 @@ export const PageContent = styled.div`
   .blog-item {
     /* margin-top: 16px; */
     padding: 10px 0;
+    cursor: pointer;
     &:not(:last-child) {
       border-bottom: 1px solid #f5f5f5;
+    }
+    &:hover {
+      color: #e99daa;
     }
   }
 `;

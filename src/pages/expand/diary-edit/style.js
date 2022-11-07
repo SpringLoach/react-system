@@ -5,6 +5,9 @@ export const PageWrapper = styled.div`
   padding: 24px;
   padding-top: 70px;
   padding-bottom: 60px;
+  @media (min-width: 800px) {
+    padding-top: 10px;
+  }
 `;
 
 export const ConfigItemWrapper = styled.div`

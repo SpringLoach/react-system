@@ -1,6 +1,7 @@
 import React, { memo, Fragment, useEffect, useState } from "react";
 import { parseURLToObj } from "@/utils/common";
 import { query } from "@/api/diary/diary";
+import PhoneHeader from "@/components/phone-header";
 import { useHistory } from "react-router-dom";
 
 import { MenuOutlined } from "@ant-design/icons";
@@ -32,29 +33,21 @@ export default memo((props) => {
 
   const skipBack = () => {
     history.goBack();
-  }
+  };
 
   return (
     <PageWrapper>
-      <PageHeader>
-        <img
-          className="logo"
-          src="https://z4a.net/images/2022/11/03/LogoMakr-1U8snf.png"
-          alt=""
-          onClick={skipBack}
-        />
-        <MenuOutlined style={{ color: "#404354" }} />
-      </PageHeader>
+      <PhoneHeader title={record.title} />
       <PageContent>
         <ArticleWrap>
-          <h1>{record.title}</h1>
-          {record.nickname &&
+          {/* <h1>{record.title}</h1> */}
+          {record.nickname && (
             <p className="info-row">
               由 <span className="info-tip">{record.nickname}</span> |{" "}
               {record.updateTime} |{" "}
               <span className="info-tip">{record.type}</span>
             </p>
-          }
+          )}
           {record.config.map((config, index) => {
             let inner = "";
             if (config.type === "title") {
