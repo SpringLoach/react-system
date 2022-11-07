@@ -16,9 +16,9 @@ export const PageHeader = styled.div`
 `;
 
 export const PageContent = styled.div`
+  min-height: calc(100vh - 80px);
   width: 85%;
   margin: auto;
-  padding-bottom: 24px;
   @media (min-width: 1070px) {
     display: flex;
     max-width: 960px;
@@ -26,7 +26,9 @@ export const PageContent = styled.div`
 `;
 
 export const ArticleWrap = styled.div`
+  padding-bottom: 24px;
   margin-top: 20px;
+  flex: 1;
   .info-row {
     margin-bottom: 20px;
   }
@@ -90,7 +92,7 @@ export const ArticleWrap = styled.div`
 
 export const Aside = styled.div`
   margin-left: 24px;
-  width: 800px;
+  width: 300px;
   background: #ccc;
   display: none;
   @media (min-width: 1070px) {

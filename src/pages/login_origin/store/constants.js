@@ -1,1 +1,0 @@
-export const CHANGE_USER_INFO = "login/CHANGE_USER_INFO";

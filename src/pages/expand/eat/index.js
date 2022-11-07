@@ -2,6 +2,7 @@ import React, { memo, useState, useMemo, useRef, useEffect } from "react";
 
 import { Modal, Input, Tooltip } from "antd";
 import { PageWrapper, DiyContent } from "./style";
+import PhoneHeader from "@/components/phone-header"
 
 const baseFoodList = [
   "麻辣烫",
@@ -147,6 +148,8 @@ export default memo(() => {
 
   return (
     <PageWrapper className="eat" ref={eat}>
+      {/* 这里到时候根据屏幕宽度动态判断下 */}
+      <PhoneHeader title="随便吃点" />
       <h3>{title}</h3>
       <p>{target}</p>
       <button

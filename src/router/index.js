@@ -8,7 +8,6 @@ import Hero from "@/pages/main/base/hero";
 import StepForm from "@/pages/main/base/step-form";
 import Center from "@/pages/main/account/center";
 import Settings from "@/pages/main/account/settings";
-import DiaryList from "@/pages/main/expand/diary";
 import FooterConfig from "@/pages/main/account/footer-config";
 import User from "@/pages/main/system/user";
 import MyRight from "@/pages/main/system/my-right";
@@ -16,6 +15,8 @@ import Eat from "@/pages/expand/eat";
 import Diary from "@/pages/expand/diary";
 import DiaryEdit from "@/pages/expand/diary-edit";
 import DiaryRecord from "@/pages/expand/diary-record";
+import PhoneLogin from "@/pages/phone/login"
+import PhoneCenter from "@/pages/phone/center"
 
 const routes = [
   {
@@ -99,11 +100,11 @@ const routes = [
       {
         path: "/expand",
         exact: true,
-        render: () => <Redirect to="/expand/diaryList" />,
+        render: () => <Redirect to="/expand/diary-record" />,
       },
       {
-        path: "/expand/diary-list",
-        component: DiaryList,
+        path: "/expand/diary-record",
+        component: DiaryRecord,
       },
     ],
   },
@@ -123,6 +124,14 @@ const routes = [
     path: "/diary-record",
     component: DiaryRecord,
   },
+  {
+    path: "/phone/login",
+    component: PhoneLogin,
+  },
+  {
+    path: "/phone/center",
+    component: PhoneCenter,
+  }
 ];
 
 export default routes;

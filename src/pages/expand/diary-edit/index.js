@@ -13,6 +13,7 @@ import {
   Radio,
 } from "antd";
 import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
+import PhoneHeader from "@/components/phone-header"
 import { PageWrapper, ConfigItemWrapper, PageFooter } from "./style";
 
 const TitleConfig = memo(({ item, changeConfig }) => {
@@ -313,6 +314,7 @@ export default memo((props) => {
 
   return (
     <PageWrapper>
+      <PhoneHeader title="编辑博客" />
       <h2>博客标题</h2>
       <Input
         style={{ marginBottom: "20px" }}

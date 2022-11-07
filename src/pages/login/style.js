@@ -19,9 +19,6 @@ export const PageWrapper = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    /* background: url(http://hh-oss-picture.miyapay.com/box/406cd5941f73e1cb469fa5f53306972e.png); */
-    /* background: url(https://wanningyuandian-uat-bucket.oss-cn-shenzhen.aliyuncs.com/unioncenter/image/04d1758d6d0f4f0abaf95d56855d45e7); */
-    /* background: url(https://wanningyuandian-uat-bucket.oss-cn-shenzhen.aliyuncs.com/unioncenter/image/4e32f420ec57443e95caa64957ed8e2e); */
     background: url(https://z4a.net/images/2022/10/12/_202210121255063.jpg);
     background-size: 100% 100%;
   }
@@ -32,7 +29,6 @@ export const PageWrapper = styled.div`
     position: absolute;
     left: 40px;
     top: 24px;
-    /* background: url(http://hh-oss-picture.miyapay.com/box/77d67bdce52bc9ae401d162b38c70eb5.png); */
     background: url(https://z4a.net/images/2022/10/12/LogoMakr-7mvp7a.png);
     background-size: 100% 100%;
   }

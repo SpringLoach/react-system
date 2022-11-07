@@ -1,8 +1,9 @@
 import React, { memo, Fragment, useEffect, useState } from "react";
 import { parseURLToObj } from "@/utils/common";
 import { query } from "@/api/diary/diary";
+import { useHistory } from "react-router-dom";
 
-import { UngroupOutlined } from "@ant-design/icons";
+import { MenuOutlined } from "@ant-design/icons";
 import {
   PageWrapper,
   PageHeader,
@@ -10,13 +11,13 @@ import {
   ArticleWrap,
   Aside,
 } from "./style";
-import Item from "antd/lib/list/Item";
 
 export default memo((props) => {
   const [record, setRecord] = useState({
     config: [],
   });
   const { id } = parseURLToObj(props.location.search);
+  const history = useHistory();
 
   useEffect(() => {
     initProvinceList();
@@ -29,25 +30,31 @@ export default memo((props) => {
     setRecord(data);
   };
 
+  const skipBack = () => {
+    history.goBack();
+  }
+
   return (
     <PageWrapper>
       <PageHeader>
-        {/* <div className=""></div> */}
         <img
           className="logo"
           src="https://z4a.net/images/2022/11/03/LogoMakr-1U8snf.png"
           alt=""
+          onClick={skipBack}
         />
-        <UngroupOutlined style={{ color: "#008cff" }} />
+        <MenuOutlined style={{ color: "#404354" }} />
       </PageHeader>
       <PageContent>
         <ArticleWrap>
           <h1>{record.title}</h1>
-          <p className="info-row">
-            由 <span className="info-tip">{record.nickname}</span> |{" "}
-            {record.updateTime} |{" "}
-            <span className="info-tip">{record.type}</span>
-          </p>
+          {record.nickname &&
+            <p className="info-row">
+              由 <span className="info-tip">{record.nickname}</span> |{" "}
+              {record.updateTime} |{" "}
+              <span className="info-tip">{record.type}</span>
+            </p>
+          }
           {record.config.map((config, index) => {
             let inner = "";
             if (config.type === "title") {
