@@ -27,6 +27,7 @@ const items = [
     getItem("静态表格", "/base/biology"),
     getItem("动态表格", "/base/hero"),
     getItem("分步表单", "/base/step-form"),
+    getItem("更多功能", "/base/features"),
   ]),
   getItem("我的", "/account", <UserOutlined />, [
     getItem("个人中心", "/account/center"),

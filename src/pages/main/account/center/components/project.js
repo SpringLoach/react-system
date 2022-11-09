@@ -25,6 +25,7 @@ export default memo(() => {
       <Paragraph>- 添加用户列表模块</Paragraph>
       <Paragraph>- 添加日记模块，做几个模板</Paragraph>
       <Paragraph>- 添加计划模块，可以添加以周/月/年作为周期的计划，并记录完成情况</Paragraph>
+      <Paragraph>- 建分支添加功能：海报、二维码、pdf、echart、图片上传、excel导入导出</Paragraph>
       <Title level={4}>参考</Title>
       <Paragraph>
         项目的某些模块在页面设计方面等方面，参考了其他优秀的开源项目，有几个页面直接参照 Ant Design Pro 进行了还原。

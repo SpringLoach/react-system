@@ -6,6 +6,7 @@ import Main from "@/pages/main";
 import Biology from "@/pages/main/base/biology";
 import Hero from "@/pages/main/base/hero";
 import StepForm from "@/pages/main/base/step-form";
+import Features from "@/pages/main/base/features";
 import Center from "@/pages/main/account/center";
 import Settings from "@/pages/main/account/settings";
 import FooterConfig from "@/pages/main/account/footer-config";
@@ -48,6 +49,10 @@ const routes = [
       {
         path: "/base/step-form",
         component: StepForm,
+      },
+      {
+        path: "/base/features",
+        component: Features,
       },
     ],
   },
